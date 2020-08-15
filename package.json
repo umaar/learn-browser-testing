@@ -1,0 +1,19 @@
+{
+  "name": "code",
+  "type": "module",
+  "dependencies": {
+    "ava": "^3.11.1",
+    "chromedriver": "^84.0.1",
+    "cypress": "^4.12.1",
+    "jest": "^26.2.2",
+    "jest-puppeteer": "^4.4.0",
+    "playwright": "^1.2.1",
+    "puppeteer": "^5.2.1",
+    "qawolf": "^1.3.2",
+    "selenium-webdriver": "^4.0.0-alpha.7",
+    "testcafe": "^1.8.8"
+  },
+  "jest": {
+    "preset": "jest-puppeteer"
+  }
+}

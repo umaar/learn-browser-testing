@@ -1,0 +1,13 @@
+{
+  "name": "8-test-generators",
+  "version": "1.0.0",
+  "description": "",
+  "main": "qawolf.config.js",
+  "scripts": {
+    "start": "../../node_modules/qawolf/build/index.js test myWikipediaTest",
+    "howl": "../../node_modules/qawolf/build/index.js howl"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
