@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 
-export default async function (t, run) {
+async function withPage(t, run) {
 	const browser = await puppeteer.launch();
 	const page = await browser.newPage();
 	try {
@@ -10,3 +10,5 @@ export default async function (t, run) {
 		await browser.close();
 	}
 }
+
+export default withPage;

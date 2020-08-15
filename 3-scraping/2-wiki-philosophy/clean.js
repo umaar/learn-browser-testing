@@ -1,9 +1,10 @@
-function clean(str) {
-	var d = 0, k = 0;
-	var c;
-	var out = '';
-	for (var i=0; i<str.length; i++) {
-		c = str[i];
+function clean(string) {
+	let d = 0;
+	let k = 0;
+	let c;
+	let out = '';
+	for (const element of string) {
+		c = element;
 
 		if (d < 1) {
 			if (c === '>') {
@@ -17,12 +18,13 @@ function clean(str) {
 
 		if (k < 1) {
 			if (c === '(') {
-				d +=1;
+				d += 1;
 			}
+
 			if (d > 0) {
 				out += ' ';
 			} else {
-				out += c
+				out += c;
 			}
 
 			if (c === ')') {
