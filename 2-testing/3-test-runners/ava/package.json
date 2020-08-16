@@ -2,7 +2,7 @@
     "name": "code",
     "type": "module",
     "scripts": {
-      "start": "$(node -e \"console.log(path.join('../../../node_modules/.bin/ava'))\")"
+      "start": "../../../node_modules/.bin/ava"
     }
   }
   
