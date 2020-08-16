@@ -2,6 +2,6 @@
   "name": "code",
   "type": "module",
   "scripts": {
-    "start": "../../../node_modules/.bin/testcafe 'firefox:headless' index.js"
+    "start": "$(node -e \"console.log(path.join('../../../node_modules/.bin/testcafe'))\") 'firefox:headless' index.js"
   }
 }
