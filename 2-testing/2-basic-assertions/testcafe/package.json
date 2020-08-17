@@ -2,6 +2,6 @@
   "name": "code",
   "type": "module",
   "scripts": {
-    "start": "npx testcafe 'firefox:headless' index.js"
+    "start": "../../../node_modules/.bin/testcafe 'firefox:headless' index.js"
   }
 }

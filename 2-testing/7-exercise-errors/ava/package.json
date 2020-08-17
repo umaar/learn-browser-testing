@@ -2,7 +2,7 @@
     "name": "code",
     "type": "module",
     "scripts": {
-      "start": "npx ava test.js"
+      "start": "../../../node_modules/.bin/ava test.js"
     }
   }
   

@@ -2,7 +2,7 @@
   "name": "code",
   "type": "module",
   "scripts": {
-    "start": "npx jest"
+    "start": "../../../node_modules/.bin/jest"
   },
   "jest": {
     "preset": "jest-puppeteer"

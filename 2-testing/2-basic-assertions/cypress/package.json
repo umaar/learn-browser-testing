@@ -1,6 +1,6 @@
 {
   "name": "code",
   "scripts": {
-    "start": "npx cypress run --config-file false"
+    "start": "../../../node_modules/.bin/cypress run --config-file false"
   }
 }
