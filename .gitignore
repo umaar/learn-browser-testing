@@ -66,3 +66,4 @@ sftp-config*
 *.screenflow
 *.mp4
 *.key
+.env
