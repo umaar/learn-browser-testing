@@ -22,7 +22,9 @@ if (shouldSaveToCloud) {
 
 const browser = await puppeteer.launch({headless: true});
 const page = await browser.newPage();
+
 function sleep(ms = 1000) {return new Promise((resolve) => setTimeout(resolve, ms))};
+
 let price = 0;
 let maxChecks = 5;
 let checksMade = 0;
