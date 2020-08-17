@@ -4,6 +4,7 @@
   "dependencies": {
     "ava": "^3.11.1",
     "chromedriver": "^84.0.1",
+    "cucumber": "^6.0.5",
     "cypress": "^4.12.1",
     "jest": "^26.4.0",
     "jest-puppeteer": "^4.4.0",
