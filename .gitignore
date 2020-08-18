@@ -67,4 +67,5 @@ sftp-config*
 *.mp4
 *.key
 .env
+1-testing/3-quick-recipes/assets/
 /wip

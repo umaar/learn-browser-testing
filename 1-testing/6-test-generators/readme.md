@@ -36,3 +36,7 @@ node ..\\..\\node_modules\\qawolf\\build\\index.js create https://www.wikipedia.
 # Run your test
 node ..\\..\\node_modules\\qawolf\\build\\index.js test yourTestNameHere
 ```
+
+### See also
+
+[Puppeteer Recorder](https://chrome.google.com/webstore/detail/puppeteer-recorder/djeegiggegleadkkbgopoonhjimgehda?hl=en)

@@ -3,9 +3,10 @@ import fs from 'fs';
 
 const browser = await puppeteer.launch();
 const page = await browser.newPage();
+
 await page.setRequestInterception(true)
 
-page.on('request', async (request) => {
+page.on('request', async request => {
 	if (request.url().includes('/product/v1/product')) {
 		await request.respond({
 			status: 200,
