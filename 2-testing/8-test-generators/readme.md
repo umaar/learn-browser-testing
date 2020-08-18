@@ -11,13 +11,28 @@ npm start # runs a sample wikipedia test
 2. First, run this command to CREATE your test:
 
 ```sh
-../../node_modules/qawolf/build/index.js create https://www.wikipedia.org/ yourTestNameHere
+node ../../node_modules/qawolf/build/index.js create https://www.wikipedia.org/ yourTestNameHere
 ```
 
 3. Then, run this command to RUN your test:
 
 ```sh
-../../node_modules/qawolf/build/index.js test yourTestNameHere
+node ../../node_modules/qawolf/build/index.js test yourTestNameHere
 ```
 
 4. Create new tests on websites other than Wikipedia
+
+### Windows User
+
+If those commands above do not work on Windows, try these:
+
+```sh
+yarn howl
+yarn start
+
+# Create a test
+node ..\\..\\node_modules\\qawolf\\build\\index.js create https://www.wikipedia.org/ yourTestNameHere
+
+# Run your test
+node ..\\..\\node_modules\\qawolf\\build\\index.js test yourTestNameHere
+```
