@@ -12,5 +12,5 @@ yarn start
 ## Run an individual script
 
 ```sh
-node --experimental-top-level-await index create-pdf.js
+node --experimental-top-level-await create-pdf.js
 ```
