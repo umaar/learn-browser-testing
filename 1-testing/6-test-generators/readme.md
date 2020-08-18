@@ -22,19 +22,18 @@ node ../../node_modules/qawolf/build/index.js test yourTestNameHere
 
 4. Create new tests on websites other than Wikipedia
 
-### Windows User
+### Alternative commands
 
-If those commands above do not work on Windows, try these:
+If those commands above do not work on for you, for example on Windows, try these:
 
 ```sh
-yarn howl
-yarn start
+npx qawolf howl
 
 # Create a test
-node ..\\..\\node_modules\\qawolf\\build\\index.js create https://www.wikipedia.org/ yourTestNameHere
+npx qawolf create https://www.wikipedia.org/ yourTestNameHere
 
 # Run your test
-node ..\\..\\node_modules\\qawolf\\build\\index.js test yourTestNameHere
+npx qawolf test yourTestNameHere
 ```
 
 ### See also
