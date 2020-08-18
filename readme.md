@@ -5,6 +5,8 @@ End to end testing and browser automation.
 
 ### Quick start
 
+Please use Node v14.4.0 or above.
+
 ```sh
 npm install
 ```
