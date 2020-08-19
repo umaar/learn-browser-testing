@@ -71,4 +71,4 @@ sftp-config*
 !1-testing/3-quick-recipes/assets/.gitkeep
 /wip
 1-testing/**/*.png
-1-testing-old/**/*.png
+1-testing-old-node/**/*.png

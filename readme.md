@@ -17,6 +17,10 @@ Then, `cd` into any directory and run:
 npm start
 ```
 
+### Older Node.js
+
+If using an older Node.js, please refer to the `1-testing-old-node` folder instead. I've manually gone through and converted ES Imports into `requires()` and avoided any top-level await.
+
 ### Windows users
 
 If `npm start` works for you (try one of the cypress, or just examples), then continue with that - you don't need to change anything. Otherwise, run this to fix the error:
