@@ -24,19 +24,6 @@ await page.setViewport({ width: 1000, height: 1000 });
 
 await page.goto('http://localhost:3000')  
 
-/*
-	Order of operations
-
-	1. Navigate to the payment page
-		What does navigation involve exactly?
-		When is the next page ready? - Anyone want to give this a shot?
-	2. Fill in the payment fields
-		What type of fields are they - iframe inputs?
-	3. Submit the payment form
-	4. Assert payment was successful
-		Optional: Assert the email
-*/
-
 await Promise.all([
 	page.waitForNavigation({
 		waitUntil: ['load', 'domcontentloaded', 'networkidle0']
