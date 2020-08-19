@@ -70,3 +70,4 @@ sftp-config*
 1-testing/3-quick-recipes/assets/*
 !1-testing/3-quick-recipes/assets/.gitkeep
 /wip
+1-testing/**/*.png
