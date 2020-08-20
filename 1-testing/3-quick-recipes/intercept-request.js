@@ -23,6 +23,10 @@ page.on('request', async request => {
 
 await page.setViewport({ width: 1280, height: 800 })
 await page.goto('https://www.sainsburys.co.uk/gol-ui/product/vita-coco-coconut-oil-500ml')
+await page.evaluate(() => {
+	let cookieOverlay = document.querySelector('.onetrust-pc-dark-filter');
+	cookieOverlay.parentNode.removeChild(cookieOverlay);
+});
 await page.screenshot({ path: screenshotPath, fullPage: true })
 
 await browser.close();
