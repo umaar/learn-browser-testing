@@ -15,7 +15,7 @@ page.on('request', async request => {
 			status: 200,
 			contentType: 'application/json',
 			body: fs.readFileSync('mock-response-sainsburys.json')
-		})
+		});
 	} else {
 		await request.continue();
 	}

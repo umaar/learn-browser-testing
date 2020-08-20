@@ -72,3 +72,5 @@ sftp-config*
 /wip
 1-testing/**/*.png
 1-testing-old-node/**/*.png
+2-scraping/**/*.png
+2-scraping-old-node/**/*.png
