@@ -1,4 +1,7 @@
 
+## The definitive guide to automated performance testing using Lighthouse, GitHub Actions and Heroku, all for free
+
+
 ## 1. Run lighthouse and upload results to their public server
 
 While the Lighthouse CI tool does support extra config, let's just run this as one command:
@@ -134,6 +137,16 @@ abc:123
 5. Add the token as a GitHub secret, e.g. https://github.com/umaar/learn-browser-testing/settings/secrets/new
 	+ Token name = `LHCI_GITHUB_APP_TOKEN`
 	+ Value = `[value from the message you saw earlier]`
+
+
+### 4.3. Make the status check mandatory for merging a PR
+
+1. https://github.com/umaar/learn-browser-testing/settings/branch_protection_rules/new
+2. Enter the following:
+	+ Branch name pattern = *
+	+ Require status checks to pass before merging = enabled
+	+ Require branches to be up to date before merging = enabled
+	+ Enable the status checks = Lighthouse CI and lhci/url/
 
 
 ### commands
