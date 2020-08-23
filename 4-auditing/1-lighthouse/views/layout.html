@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Express &mp; Nunjucks</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="text-center">
+        <div class="bg-primary">
+            <div class="container">
+                <h3>Express &amp; Nunjucks</h3>
+                <br>
+            </div>
+        </div>
+        <nav>
+            <br>
+            <ul class="list-inline">
+                <li><a href="/">home</a></li>
+                <li><a href="/example">example</a></li>
+            </ul>
+        </nav>
+        <hr>
+    </header>
+
+    {% block body %}
+    {% endblock %}
+
+    <footer class="text-center">
+        <hr>
+        <p class="muted">App running on port: <code>{{ port }}</code></p>
+    </footer>
+</body>
+</html>

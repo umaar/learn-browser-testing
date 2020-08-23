@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {% block content %}
+            <h1>Page: {{ page }}</h1>
+            <br>
+            <p>Looks like we're up and running!</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus tempore officiis sint unde voluptates possimus id autem quis minus inventore rem iusto dolorum expedita sunt repellendus, at hic cum laborum.</p>
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

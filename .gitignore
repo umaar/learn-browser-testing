@@ -67,6 +67,7 @@ sftp-config*
 *.mp4
 *.key
 .env
+.lighthouseci
 1-testing/3-quick-recipes/assets/*
 !1-testing/3-quick-recipes/assets/.gitkeep
 /wip
