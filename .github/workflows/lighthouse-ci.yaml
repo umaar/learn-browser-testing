@@ -3,16 +3,30 @@ on: [push]
 jobs:
   lhci:
     name: Lighthouse CI
+
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v1
       - name: Use latest Node.js
         uses: actions/setup-node@v1
         with:
           node-version: '*'
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-${{ env.cache-name }}-
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
+
       - name: npm install
         run: |
           npm install
+
       - name: run Lighthouse CI
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
