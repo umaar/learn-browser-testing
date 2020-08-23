@@ -14,5 +14,7 @@ jobs:
         run: |
           npm install
       - name: run Lighthouse CI
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         run: |
           npm run --prefix 4-auditing/1-lighthouse lighthouse || echo "LHCI failed!"
