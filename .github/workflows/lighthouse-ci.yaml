@@ -31,4 +31,4 @@ jobs:
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         run: |
-          npm run --prefix 4-auditing/1-lighthouse lighthouse-private || echo "LHCI failed!"
+          npm run --prefix 4-auditing/1-lighthouse lighthouse-private-with-error || echo "LHCI failed!"
