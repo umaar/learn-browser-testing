@@ -1,4 +1,13 @@
 
+## 1. Configure your project with lighthouse
+
+While the Lighthouse CI tool does support extra config, let's just run this as one command:
+
+```sh
+npm run lighthouse # or yarn lighthouse
+```
+
+
 ### commands
 
 ```sh
