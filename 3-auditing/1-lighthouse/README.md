@@ -9,6 +9,8 @@ __The end goal__: At the end of this, you'll be able to run standard Lighthouse 
 
 You can run performance checks, accessibility checks, security checks, on each pull request to your GitHub repo.
 
+---
+
 ## 1. Upload lighthouse results
 
 Run lighthouse and upload results to their public server.
@@ -19,6 +21,8 @@ While the Lighthouse CI tool does support extra config, let's just run this as o
 # from 3-auditing/1-lighthouse
 npm run lighthouse # or yarn lighthouse
 ```
+
+---
 
 ## 2. Upload lighthouse results locally
 
@@ -77,6 +81,8 @@ Run the following command, and be sure to substitute `[YOUR_TOKEN]` for your act
 
 And verify the results on your local lighthouse CI server, e.g. at http://localhost:9001
 
+---
+
 ## 3. Run lighthouse CI in the cloud
 
 This runs the platform, which powers the lighthouse dashboard, to the cloud.
@@ -90,7 +96,7 @@ On this occasion, we'll use [heroku](https://www.heroku.com/) since it has a fre
 
 ### 3.2. Deploy lighthouse CI to heroku (free)
 
-The lighthouse CI dashboard is completely independent of this `learn-browser-testing` repo, therefore, clone this starter kit __outside__ of this current project.
+The lighthouse CI dashboard is completely independent of this `learn-browser-testing` repo, therefore, clone the lhci-heroku starter kit __outside__ of this current project.
 
 ```sh
 # For example, in ~/code or wherever your code projects live
@@ -127,6 +133,8 @@ I gave these answers:
 ? What branch is considered the repo's trunk or main branch? master
 ```
 
+Take note of the tokens which are presented to you.
+
 ### 3.4. Upload lighthouse results to heroku
 
 Run lighthouse and upload the results to your heroku lighthouse CI server:
@@ -147,6 +155,8 @@ Run lighthouse and upload the results to your heroku lighthouse CI server:
 
 Be sure to verify the results on your heroku lighthouse CI server.
 
+---
+
 ## 4. Connect lighthouse with github
 
 You can do this for your own repository, or just follow along by observing.
@@ -155,9 +165,9 @@ Starting with GitHub actions, you need to add an actions file.
 
 ### 4.1. Add an action file
 
-This [action file](https://github.com/umaar/learn-browser-testing/blob/master/.github/workflows/lighthouse-ci.yaml) is a sensible starting point. Just add in your repo, under `.github/workflows/lighthouse-ci.yaml`.
+This [action file](https://github.com/umaar/learn-browser-testing/blob/master/.github/workflows/lighthouse-ci.yaml) is a sensible starting point. Just add it in your repo, under `.github/workflows/lighthouse-ci.yaml`.
 
-Note the final run command: `npm run --prefix 3-auditing/1-lighthouse lighthouse-private-with-error`, you probably want to simplify this to something like `npm test` or `npm run lighthouse`.
+Note the final run command: `npm run --prefix 3-auditing/1-lighthouse lighthouse-private-with-error`, if doing this in your own repo, you probably want to simplify this to something like `npm test` or `npm run lighthouse`, and make sure the relevant script definition is in your `package.json`.
 
 ### 4.2. Enable the status check
 
@@ -172,7 +182,9 @@ Observe the message like:
 
 ```
 Authorized
-Save the token below in a safe place. This is the only time it will be visible to you! Store the token as LHCI_GITHUB_APP_TOKEN in your build environment.
+Save the token below in a safe place.
+This is the only time it will be visible to you!
+Store the token as LHCI_GITHUB_APP_TOKEN in your build environment.
 
 abc:123
 ```
@@ -196,6 +208,8 @@ If the status check reports a failure, by default, this will not block pull requ
 	+ Require branches to be up to date before merging = enabled
 	+ Enable the status checks = Lighthouse CI and lhci/url/
 
+---
+
 ## 5. Finishing up
 
 That was quite a few steps, but it should all be working now.
@@ -214,6 +228,7 @@ Here's the command to run:
 
 ```sh
 # from 3-auditing/1-lighthouse, or run this in your own repo
+# this is using my personal token and personal dashboard, feel free to swap with your own
 ../../node_modules/.bin/lhci autorun \
 	--collect.numberOfRuns=1 \
 	--collect.startServerCommand='npm start' \
@@ -223,6 +238,8 @@ Here's the command to run:
 	--upload.token='02fd25fc-e007-4ef9-9d88-eec9fa59f966' \
 	--assert.assertions.heading-order=error
 ```
+
+---
 
 ## Example dashboard
 
