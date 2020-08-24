@@ -66,23 +66,31 @@ Run the following command, and be sure to substitute `[YOUR_TOKEN]` for your act
 
 ```sh
 # from 3-auditing/1-lighthouse
-../../node_modules/.bin/lhci autorun --collect.numberOfRuns=1 --collect.startServerCommand='npm start' --collect.url='http://localhost:3000' --upload.target=lhci --upload.serverBaseUrl='http://127.0.0.1:9001' --upload.token='[YOUR_TOKEN]'
+../../node_modules/.bin/lhci autorun \
+	--collect.numberOfRuns=1 \
+	--collect.startServerCommand='npm start' \
+	--collect.url='http://localhost:3000' \
+	--upload.target=lhci \
+	--upload.serverBaseUrl='http://127.0.0.1:9001' \
+	--upload.token='[YOUR_TOKEN]'
 ```
 
 And verify the results on your local lighthouse CI server, e.g. at http://localhost:9001
 
-## 3. Deploy a lighthouse CI server to the cloud
+## 3. Run lighthouse CI in the cloud
 
-On this occasion, we'll use heroku since it has a free tier
+This runs the platform, which powers the lighthouse dashboard, to the cloud.
+
+On this occasion, we'll use [heroku](https://www.heroku.com/) since it has a free tier.
 
 ### 3.1. Setup heroku
 
-- If you don't already have an account on [heroku.com](heroku.com), make one.
-- Then install their [CLI tool](https://devcenter.heroku.com/articles/heroku-cli)
+- Make a [heroku.com](heroku.com) account
+- Install their [CLI tool](https://devcenter.heroku.com/articles/heroku-cli)
 
-### 3.2. Deploy the lighthouse CI tool to heroku (free)
+### 3.2. Deploy lighthouse CI to heroku (free)
 
-Clone this starter kit outside of this current project
+The lighthouse CI dashboard is completely independent of this `learn-browser-testing` repo, therefore, clone this starter kit __outside__ of this current project.
 
 ```sh
 # For example, in ~/code or wherever your code projects live
