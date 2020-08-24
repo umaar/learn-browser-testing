@@ -96,19 +96,21 @@ The lighthouse CI dashboard is completely independent of this `learn-browser-tes
 # For example, in ~/code or wherever your code projects live
 git clone https://github.com/umaar/lhci-heroku.git
 cd lhci-heroku
-# Create a new project on heroku
+
+# Create your new project in heroku
 heroku create
-# Add a free database to your project
+
+# Create a new database (https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-heroku-postgres)
 heroku addons:create heroku-postgresql:hobby-dev
-# Deploy your code to heroku
+
+# The "git remote" named "heroku" is automatically configured, you just need to run `git push heroku master` to push to the heroku servers
 git push heroku master
-# Ensure heroku is running your app and open the URL
+
+# Finally, start the app
 heroku ps:scale web=1
-heroku open
 ```
 
 ### 3.3. Run lighthouse wizard
-
 
 ```sh
 # While in the `lhci-heroku` folder, run:
@@ -125,22 +127,27 @@ I gave these answers:
 ? What branch is considered the repo's trunk or main branch? master
 ```
 
-### 3.4. Run lighthouse and upload the results to your heroku lighthouse CI server:
+### 3.4. Upload lighthouse results to heroku
+
+Run lighthouse and upload the results to your heroku lighthouse CI server:
 
 - Substitute `[YOUR_TOKEN]` for your actual `build token`.
 - Substitute `[YOUR BASE URL]` for your heroku URL.
 
 ```sh
 # Back in 3-auditing/1-lighthouse
-../../node_modules/.bin/lhci autorun --collect.numberOfRuns=1 --collect.startServerCommand='npm start' --collect.url='http://localhost:3000' --upload.target=lhci --upload.serverBaseUrl='[YOUR BASE URL]' --upload.token='[YOUR_TOKEN]'
+../../node_modules/.bin/lhci autorun \
+	--collect.numberOfRuns=1 \
+	--collect.startServerCommand='npm start' \
+	--collect.url='http://localhost:3000' \
+	--upload.target=lhci \
+	--upload.serverBaseUrl='[YOUR BASE URL]' \
+	--upload.token='[YOUR_TOKEN]'
 ```
 
-### 3.5. Verify results on your heroku lighthouse CI server
+Be sure to verify the results on your heroku lighthouse CI server.
 
-Access the base URL you've been using so far.
-
-
-## 4. Configure lighthouse ci with github ci
+## 4. Connect lighthouse with github actions
 
 ### 4.1. Add an action file
 
