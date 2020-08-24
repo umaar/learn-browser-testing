@@ -147,17 +147,24 @@ Run lighthouse and upload the results to your heroku lighthouse CI server:
 
 Be sure to verify the results on your heroku lighthouse CI server.
 
-## 4. Connect lighthouse with github actions
+## 4. Connect lighthouse with github
+
+You can do this for your own repository, or just follow along by observing.
+
+Starting with GitHub actions, you need to add an actions file.
 
 ### 4.1. Add an action file
 
-Use https://github.com/umaar/learn-browser-testing/blob/master/.github/workflows/lighthouse-ci.yaml
+This [action file](https://github.com/umaar/learn-browser-testing/blob/master/.github/workflows/lighthouse-ci.yaml) is a sensible starting point. Just add in your repo, under `.github/workflows/lighthouse-ci.yaml`.
 
+Note the final run command: `npm run --prefix 3-auditing/1-lighthouse lighthouse-private-with-error`, you probably want to simplify this to something like `npm test` or `npm run lighthouse`.
 
 ### 4.2. Enable the status check
 
+You can configure a Lighthouse 'status' message to appear under pull requests. This can inform you whether or not the pull request passes the lighthouse audit.
+
 1. Open https://github.com/apps/lighthouse-ci
-2. Click `configure`
+2. Click `Configure`
 3. Enable for the repo you are interested in
 4. Click authorise
 
@@ -175,15 +182,19 @@ abc:123
 	+ Value = `[value from the message you saw earlier]`
 
 
-### 4.3. Make the status check mandatory for merging a PR
+### 4.3. Make lighthouse mandatory
 
-1. https://github.com/umaar/learn-browser-testing/settings/branch_protection_rules/new
+Make the status check mandatory for merging a PR
+
+If the status check reports a failure, by default, this will not block pull requests from being merged. We can change this behaviour:
+
+1. Add a new [protection rule](https://github.com/umaar/learn-browser-testing/settings/branch_protection_rules/new).
+	+ GitHub Repo > Settings > Branches > Branch protection rules > Add rule
 2. Enter the following:
 	+ Branch name pattern = *
 	+ Require status checks to pass before merging = enabled
 	+ Require branches to be up to date before merging = enabled
 	+ Enable the status checks = Lighthouse CI and lhci/url/
-
 
 ## 5. Finishing up
 
@@ -191,12 +202,28 @@ That was quite a few steps, but it should all be working now.
 
 Test this by making a PR to your repo, do you see the Lighthouse status checks? You can use their assertions feature (e.g. fail when this performance metric is too low) to block pull requests from merging.
 
-### commands
+Here's a good way to check, by failing on the `heading-order` error. It's simple enough that you can add in some HTML like this to make the build pass/fail:
 
-```sh
-node_modules/.bin/lhci --config=./3-auditing/1-lighthouse/lighthouserc.json autorun
+```html
+<h2>heading 2</h2>
+<h1>heading 1</h1>
+<h3>heading 3</h3>
 ```
 
-https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1598183475406-64517.report.html
+Here's the command to run:
 
-https://salty-headland-92476.herokuapp.com/app/projects/lhci-heroku/dashboard
+```sh
+# from 3-auditing/1-lighthouse, or run this in your own repo
+../../node_modules/.bin/lhci autorun \
+	--collect.numberOfRuns=1 \
+	--collect.startServerCommand='npm start' \
+	--collect.url='http://localhost:3000' \
+	--upload.target=lhci \
+	--upload.serverBaseUrl='https://salty-headland-92476.herokuapp.com' \
+	--upload.token='02fd25fc-e007-4ef9-9d88-eec9fa59f966' \
+	--assert.assertions.heading-order=error
+```
+
+## Example dashboard
+
+Here's [my dashboard](https://salty-headland-92476.herokuapp.com/).
