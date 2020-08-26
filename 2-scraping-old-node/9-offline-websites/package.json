@@ -1,0 +1,7 @@
+{
+  "name": "code",
+  "scripts": {
+    "start": "node ../../node_modules/archivist1/index.js",
+    "interact": "node index"
+  }
+}

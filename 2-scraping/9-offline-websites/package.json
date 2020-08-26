@@ -1,0 +1,8 @@
+{
+  "name": "code",
+  "type": "module",
+  "scripts": {
+    "start": "node ../../node_modules/archivist1/index.js",
+    "interact": "node --experimental-top-level-await index"
+  }
+}
