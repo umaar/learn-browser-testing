@@ -199,11 +199,15 @@ Starting with GitHub actions, you need to add an actions file.
 
 This [action file](https://github.com/umaar/learn-browser-testing/blob/master/.github/workflows/lighthouse-ci.yaml) is a sensible starting point. Just add it in your repo, under `.github/workflows/lighthouse-ci.yaml`.
 
+💡️ If you've never used GitHub actions before, spend a bit of time [reading about them](https://docs.github.com/en/actions/reference).
+
 Note the final run command which I've used:
 
 ```sh
 npm run --prefix 3-auditing/1-lighthouse lighthouse-private-with-error
 ```
+
+I've resorted to this command because of the directory structure of this particular repository, and because that command above is run from the `root` of the repo.
 
 If you're doing this in your own repo, you'll want to simplify that command to something like `npm test` or `npm run lighthouse`, and make sure the relevant script definition is in your `package.json`.
 
@@ -232,6 +236,8 @@ abc:123
 	+ Token name = `LHCI_GITHUB_APP_TOKEN`
 	+ Value = `[value from the message you saw earlier]`
 
+
+💡️ Understand why we are adding this as a secret. Hint, we added `LHCI_GITHUB_APP_TOKEN` in our actions file which exposes this as an [environment variable](https://docs.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables).
 
 ### 4.3. Make lighthouse mandatory
 
@@ -273,10 +279,12 @@ Here's the command to run:
 	--collect.startServerCommand='npm start' \
 	--collect.url='http://localhost:3000' \
 	--upload.target=lhci \
-	--upload.serverBaseUrl='https://salty-headland-92476.herokuapp.com' \
-	--upload.token='02fd25fc-e007-4ef9-9d88-eec9fa59f966' \
+	--upload.serverBaseUrl='[YOUR_HEROKU_URL]' \
+	--upload.token='[YOUR_TOKEN]' \
 	--assert.assertions.heading-order=error
 ```
+
+💡️ Read up on the [`assertions`](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/configuration.md#assertions) feature of the lighthouse ci tool.
 
 ---
 

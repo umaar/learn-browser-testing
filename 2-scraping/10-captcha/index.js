@@ -4,6 +4,12 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+const CAPTCHA_TOKEN = process.env.CAPTCHA_TOKEN;
+
+if (!CAPTCHA_TOKEN) {
+	throw new Error(`This won't work without a CAPTCHA_TOKEN (check the readme.md file)`)
+}
+
 function sleep(ms = 1000) {return new Promise((resolve) => setTimeout(resolve, ms))};
 
 puppeteer.use(RecaptchaPlugin({
