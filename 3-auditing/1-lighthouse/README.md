@@ -91,7 +91,7 @@ Run the following command, and be sure to substitute `[YOUR_TOKEN]` for your act
 
 - [serverBaseUrl](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/configuration.md#serverbaseurl)
 - [token](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/configuration.md#token)
-- What is the difference between `--upload.target=lhci` and `--upload.target=temporary-public-storage`>
+- What is the difference between `--upload.target=lhci` and `--upload.target=temporary-public-storage`?
 
 ```sh
 # from 3-auditing/1-lighthouse
@@ -110,7 +110,7 @@ Now, you can verify the results on your local lighthouse CI server, e.g. at http
 
 ## 3. Run lighthouse CI in the cloud
 
-This runs the platform, which powers the lighthouse dashboard, to the cloud.
+This runs the tool which powers the lighthouse dashboard, to the cloud. Earlier, we ran `npm run lighthouse-local-server` - we're going to run that server online through a hosting platform.
 
 On this occasion, we'll use [heroku](https://www.heroku.com/) since it has a free tier.
 
@@ -121,7 +121,7 @@ On this occasion, we'll use [heroku](https://www.heroku.com/) since it has a fre
 
 ### 3.2. Deploy lighthouse CI to heroku (free)
 
-The lighthouse CI dashboard is completely independent of this `learn-browser-testing` repo, therefore, clone the lhci-heroku starter kit __outside__ of this current project.
+The lighthouse CI dashboard is completely independent of this `learn-browser-testing` repo, therefore, clone the lhci-heroku starter kit __outside__ of this current project. Instructions below:
 
 ```sh
 # For example, in ~/code or wherever your code projects live
@@ -141,14 +141,16 @@ git push heroku master
 heroku ps:scale web=1
 ```
 
-### 3.3. Run lighthouse wizard
+### 3.3. Run the lighthouse wizard
+
+Previously, we ran the lighthouse wizard to configure a __local instance__ of the lighthouse CI tool. Now, we'll use that exact same wizard to configure the __remote heroku instance__ of the lighthouse CI tool.
 
 ```sh
 # While in the `lhci-heroku` folder, run:
 npx lhci wizard
 ```
 
-I gave these answers:
+I gave these answers. In the answers below, configure the URL so it points to the platform you've deployed to Heroku.
 
 ```
 ? Which wizard do you want to run? new-project
@@ -162,7 +164,12 @@ Take note of the tokens which are presented to you.
 
 ### 3.4. Upload lighthouse results to heroku
 
-Run lighthouse and upload the results to your heroku lighthouse CI server:
+At this point, you have:
+
+- Run lighthouse and uploaded results to their (the lighthouse team) public temporary storage 
+- Run lighthouse and uploaded results to your local instance of lighthouse ci
+
+Now, you will run lighthouse and upload the results to your __heroku lighthouse CI server__:
 
 - Substitute `[YOUR_TOKEN]` for your actual `build token`.
 - Substitute `[YOUR BASE URL]` for your heroku URL.
@@ -192,11 +199,17 @@ Starting with GitHub actions, you need to add an actions file.
 
 This [action file](https://github.com/umaar/learn-browser-testing/blob/master/.github/workflows/lighthouse-ci.yaml) is a sensible starting point. Just add it in your repo, under `.github/workflows/lighthouse-ci.yaml`.
 
-Note the final run command: `npm run --prefix 3-auditing/1-lighthouse lighthouse-private-with-error`, if doing this in your own repo, you probably want to simplify this to something like `npm test` or `npm run lighthouse`, and make sure the relevant script definition is in your `package.json`.
+Note the final run command which I've used:
+
+```sh
+npm run --prefix 3-auditing/1-lighthouse lighthouse-private-with-error
+```
+
+If you're doing this in your own repo, you'll want to simplify that command to something like `npm test` or `npm run lighthouse`, and make sure the relevant script definition is in your `package.json`.
 
 ### 4.2. Enable the status check
 
-You can configure a Lighthouse 'status' message to appear under pull requests. This can inform you whether or not the pull request passes the lighthouse audit.
+Now, configure a Lighthouse 'status' message to appear under pull requests. This can inform you whether or not the pull request passes the lighthouse audit.
 
 1. Open https://github.com/apps/lighthouse-ci
 2. Click `Configure`
