@@ -5,6 +5,3 @@
     "start": "node --experimental-top-level-await index"
   }
 }
-
-
-
