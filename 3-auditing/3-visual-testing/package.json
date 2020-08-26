@@ -1,0 +1,7 @@
+{
+  "name": "code",
+  "type": "module",
+  "scripts": {
+    "start": "../../node_modules/.bin/percy exec -- node --experimental-top-level-await index"
+  }
+}

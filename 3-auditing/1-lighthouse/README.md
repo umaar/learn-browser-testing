@@ -228,6 +228,7 @@ abc:123
 ```
 
 5. Add the token as a GitHub secret, e.g. https://github.com/umaar/learn-browser-testing/settings/secrets/new
+
 	+ Token name = `LHCI_GITHUB_APP_TOKEN`
 	+ Value = `[value from the message you saw earlier]`
 
