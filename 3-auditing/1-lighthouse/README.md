@@ -5,7 +5,12 @@
 
 The definitive guide to automated performance testing using Lighthouse, GitHub Actions and Heroku.
 
-💡️ Note: Please take time to understand how the commands work, inspect the `package.json` file, and approach with a willingness to debug. This is not just copy-and-paste everything and it magically works.
+## Notes
+
+- Please take time to understand how the commands work, inspect the `package.json` file, and approach with a willingness to debug. This is not just copy-and-paste everything and it magically works.
+- You will need to read external documentation, such as that for lighthouse, to get this working fully.
+- You'll need to adapt some of the commands/instructions to run this in your own fresh repository. It will help to read through this whole guide, taking notes of the commands might need changing.
+
 
 __The end goal__: At the end of this, you'll be able to run standard Lighthouse audits, but also __custom audits created by you__.
 
@@ -24,6 +29,15 @@ While the Lighthouse CI tool does support extra config, let's just run this as o
 npm run lighthouse # or yarn lighthouse
 ```
 
+💡️ Go and check what the `lighthouse` script does, in the `package.json`, it's important to understand the following:
+
+- [startServerCommand](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/configuration.md#startservercommand)
+- [target](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/configuration.md#target)
+- [url](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/configuration.md#url)
+- [numberOfRuns](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/configuration.md#numberofruns)
+
+Before you continue, please understand each part of the `npm run lighthouse` command.
+
 ---
 
 ## 2. Upload lighthouse results locally
@@ -41,7 +55,7 @@ npm run lighthouse-local-server
 
 Now: check the app is running @ http://localhost:9001
 
-Note, this uses SQLite, however others databases are supported also.
+💡️ As usual, go and check what the `lighthouse-local-server` command does (in `package.json`).
 
 ### 2.2. Configure lighthouse CI
 
@@ -52,7 +66,8 @@ Configure the lighthouse CI server. The lighthouse wizard tool can configure you
 npm run lighthouse-wizard
 ```
 
-I used the following answers:
+I used the following answers, you can substitute the appropriate values for your own:
+
 
 ```
 ? Which wizard do you want to run? new-project
@@ -62,13 +77,21 @@ I used the following answers:
 ? What branch is considered the repo's trunk or main branch? master
 ```
 
+💡️ You might want to use your own repository when answering those questions.
+
 After executing that, take note of the `build token`.
 
 ### 2.3. Upload lighthouse results locally
 
-Run lighthouse and upload the results to your local lighthouse CI server:
+Run lighthouse and upload the results to your __local__ lighthouse CI server:
 
 Run the following command, and be sure to substitute `[YOUR_TOKEN]` for your actual `build token`.
+
+💡️ __Important__ - Take time to understand what this command is doing, and how it works:
+
+- [serverBaseUrl](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/configuration.md#serverbaseurl)
+- [token](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/configuration.md#token)
+- What is the difference between `--upload.target=lhci` and `--upload.target=temporary-public-storage`>
 
 ```sh
 # from 3-auditing/1-lighthouse
@@ -81,7 +104,7 @@ Run the following command, and be sure to substitute `[YOUR_TOKEN]` for your act
 	--upload.token='[YOUR_TOKEN]'
 ```
 
-And verify the results on your local lighthouse CI server, e.g. at http://localhost:9001
+Now, you can verify the results on your local lighthouse CI server, e.g. at http://localhost:9001
 
 ---
 
