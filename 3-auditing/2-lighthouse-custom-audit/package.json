@@ -1,0 +1,8 @@
+{
+  "name": "code",
+  "private": true,
+  "scripts": {
+    "start" : "../../node_modules/.bin/lighthouse --view  --quiet  --chrome-flags='--headless' --config-path=custom-config.js https://automatebrowsers.com/amazon/cat-mug/",
+    "single-audit" : "../../node_modules/.bin/lighthouse --view  --quiet  --chrome-flags='--headless' --only-audits=amazon-audit  --config-path=custom-config.js https://automatebrowsers.com/amazon/cat-mug/"
+  }
+}

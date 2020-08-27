@@ -75,3 +75,4 @@ sftp-config*
 1-testing-old-node/**/*.png
 2-scraping/**/*.png
 2-scraping-old-node/**/*.png
+3-auditing/2-lighthouse-custom-audit/*.report.html

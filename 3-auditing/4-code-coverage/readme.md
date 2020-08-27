@@ -7,3 +7,7 @@ npm start
 
 yarn start
 ```
+
+## Credits
+
+Full credits: [here](https://github.com/addyosmani/puppeteer-webperf)

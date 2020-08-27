@@ -5,6 +5,10 @@
 
 The definitive guide to automated performance testing using Lighthouse, GitHub Actions and Heroku.
 
+| ![pics/all-checks-passing.png](pics/all-checks-passing.png) | 
+|:--:| 
+| *Preview of what we'll achieve* |
+
 ## Notes
 
 - Please take time to understand how the commands work, inspect the `package.json` file, and approach with a willingness to debug. This is not just copy-and-paste everything and it magically works.
@@ -19,6 +23,10 @@ You can run performance checks, accessibility checks, security checks, on each p
 ---
 
 ## 1. Upload lighthouse results
+
+| ![pics/lh-single-report.png](pics/lh-single-report.png) | 
+|:--:| 
+| *Preview of a single Lighthouse report* |
 
 Run lighthouse and upload results to their public server.
 
@@ -45,6 +53,10 @@ Before you continue, please understand each part of the `npm run lighthouse` com
 Upload results to your local lighthouse server.
 
 ### 2.1. Start lighthouse CI
+
+| ![pics/lh-dashboard-third-party-increase.png](pics/lh-dashboard-third-party-increase.png) | 
+|:--:| 
+| *Lighthouse CI can show how metrics are improving or worsening over time* |
 
 Start the lighthouse CI server on your local machine.
 
@@ -82,6 +94,10 @@ I used the following answers, you can substitute the appropriate values for your
 After executing that, take note of the `build token`.
 
 ### 2.3. Upload lighthouse results locally
+
+| ![pics/lhci-dashboard-changes.png](pics/lhci-dashboard-changes.png) | 
+|:--:| 
+| *The Lighthouse CI dashboard gives a handy overview of your page scores* |
 
 Run lighthouse and upload the results to your __local__ lighthouse CI server:
 
@@ -191,6 +207,10 @@ Be sure to verify the results on your heroku lighthouse CI server.
 
 ## 4. Connect lighthouse with github
 
+| ![pics/incomplete-checks.png](pics/incomplete-checks.png) | 
+|:--:| 
+| *We'll configure GitHub to require successful checks for merging* |
+
 You can do this for your own repository, or just follow along by observing.
 
 Starting with GitHub actions, you need to add an actions file.
@@ -212,6 +232,10 @@ I've resorted to this command because of the directory structure of this particu
 If you're doing this in your own repo, you'll want to simplify that command to something like `npm test` or `npm run lighthouse`, and make sure the relevant script definition is in your `package.json`.
 
 ### 4.2. Enable the status check
+
+| ![pics/some-checks-not-successful.png](pics/some-checks-not-successful.png) | 
+|:--:| 
+| *We'll configure GitHub to require that all checks were successful before merging* |
 
 Now, configure a Lighthouse 'status' message to appear under pull requests. This can inform you whether or not the pull request passes the lighthouse audit.
 
@@ -256,6 +280,10 @@ If the status check reports a failure, by default, this will not block pull requ
 ---
 
 ## 5. Finishing up
+
+| ![pics/ga-fail-log.png](pics/ga-fail-log.png) | 
+|:--:| 
+| *GitHub provides full console output logs so you can debug* |
 
 That was quite a few steps, but it should all be working now.
 
