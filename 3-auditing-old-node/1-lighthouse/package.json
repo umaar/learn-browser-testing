@@ -1,0 +1,13 @@
+{
+  "name": "code",
+  "scripts": {
+    "start": "node index",
+    "lighthouse": "../../node_modules/.bin/lhci autorun --collect.numberOfRuns=1 --collect.startServerCommand=\"npm start\" --collect.url=\"http://localhost:3000\" --upload.target=temporary-public-storage",
+    "lighthouse-with-error": "../../node_modules/.bin/lhci autorun --collect.numberOfRuns=1 --collect.startServerCommand=\"npm start\" --collect.url=\"http://localhost:3000\" --upload.target=temporary-public-storage --assert.assertions.heading-order=error",
+    "lighthouse-private": "../../node_modules/.bin/lhci autorun --collect.numberOfRuns=1 --collect.startServerCommand=\"npm start\" --collect.url=\"http://localhost:3000\" --upload.target=lhci --upload.serverBaseUrl=\"https://salty-headland-92476.herokuapp.com\" --upload.token=\"02fd25fc-e007-4ef9-9d88-eec9fa59f966\"",
+    "lighthouse-private-with-error": "../../node_modules/.bin/lhci autorun --collect.numberOfRuns=1 --collect.startServerCommand=\"npm start\" --collect.url=\"http://localhost:3000\" --upload.target=lhci --upload.serverBaseUrl=\"https://salty-headland-92476.herokuapp.com\" --upload.token=\"02fd25fc-e007-4ef9-9d88-eec9fa59f966\" --assert.assertions.heading-order=error",
+    "lighthouse-local": "../../node_modules/.bin/lhci autorun --collect.numberOfRuns=1 --collect.startServerCommand=\"npm start\" --collect.url=\"http://localhost:3000\" --upload.target=lhci --upload.serverBaseUrl=\"http://127.0.0.1:9001\" --upload.token=\"5ae28497-95ed-4aa1-93c4-525a1893b643\"",
+    "lighthouse-local-server": "node ../../node_modules/@lhci/cli/src/cli.js server --storage.storageMethod=sql --storage.sqlDialect=sqlite --storage.sqlDatabasePath=./db.sql",
+    "lighthouse-wizard": "node ../../node_modules/@lhci/cli/src/cli.js wizard"
+  }
+}
