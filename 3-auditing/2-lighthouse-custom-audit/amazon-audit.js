@@ -6,7 +6,7 @@ class AmazonAudit extends Audit {
 			id: 'amazon-audit',
 			title: 'Price is reasonable',
 			failureTitle: 'Price is too high',
-			description: 'Use to ensure the price of an amazon product is not too high',
+			description: 'Used to ensure the price of an amazon product is not too high',
 			requiredArtifacts: ['AmazonPrice'],
 		};
 	}

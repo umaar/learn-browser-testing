@@ -10,6 +10,10 @@ yarn start
 # or to run a single audit (a bit faster)
 
 npm run single-audit
+
+# or
+
+yarn single-audit
 ```
 
 ## Note
