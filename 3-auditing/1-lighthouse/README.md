@@ -73,9 +73,11 @@ Now: check the app is running @ http://localhost:9001
 
 Configure the lighthouse CI server. The lighthouse wizard tool can configure your lighthouse CI instance, both locally and remotely.
 
+In a new terminal tab:
+
 ```sh
 # from 3-auditing/1-lighthouse
-npm run lighthouse-wizard
+npm run lighthouse-wizard # or yarn lighthouse-wizard
 ```
 
 I used the following answers, you can substitute the appropriate values for your own:
@@ -113,11 +115,23 @@ Run the following command, and be sure to substitute `[YOUR_TOKEN]` for your act
 # from 3-auditing/1-lighthouse
 ../../node_modules/.bin/lhci autorun \
 	--collect.numberOfRuns=1 \
-	--collect.startServerCommand='npm start' \
-	--collect.url='http://localhost:3000' \
+	--collect.startServerCommand="npm start" \
+	--collect.url="http://localhost:3000" \
 	--upload.target=lhci \
-	--upload.serverBaseUrl='http://127.0.0.1:9001' \
-	--upload.token='[YOUR_TOKEN]'
+	--upload.serverBaseUrl="http://127.0.0.1:9001" \
+	--upload.token="[YOUR_TOKEN]"
+```
+
+#### Windows alternative
+
+```sh
+..\\..\\node_modules\\.bin\\lhci autorun ^
+	--collect.numberOfRuns=1 ^
+	--collect.startServerCommand="npm start" ^
+	--collect.url="http://localhost:3000" ^
+	--upload.target=lhci ^
+	--upload.serverBaseUrl="http://127.0.0.1:9001" ^
+	--upload.token="[YOUR_TOKEN]"
 ```
 
 Now, you can verify the results on your local lighthouse CI server, e.g. at http://localhost:9001
