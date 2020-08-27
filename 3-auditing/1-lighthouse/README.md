@@ -14,6 +14,7 @@ The definitive guide to automated performance testing using Lighthouse, GitHub A
 - Please take time to understand how the commands work, inspect the `package.json` file, and approach with a willingness to debug. This is not just copy-and-paste everything and it magically works.
 - You will need to read external documentation, such as that for lighthouse, to get this working fully.
 - You'll need to adapt some of the commands/instructions to run this in your own fresh repository. It will help to read through this whole guide, taking notes of the commands might need changing.
+- Windows users should ensure they have git installed.
 
 
 __The end goal__: At the end of this, you'll be able to run standard Lighthouse audits, but also __custom audits created by you__.
@@ -62,7 +63,7 @@ Start the lighthouse CI server on your local machine.
 
 ```sh
 # from 3-auditing/1-lighthouse
-npm run lighthouse-local-server
+npm run lighthouse-local-server # or yarn lighthouse-local-server
 ```
 
 Now: check the app is running @ http://localhost:9001
@@ -158,6 +159,9 @@ The lighthouse CI dashboard is completely independent of this `learn-browser-tes
 git clone https://github.com/umaar/lhci-heroku.git
 cd lhci-heroku
 
+# run this command just once
+heroku login
+
 # Create your new project in heroku
 heroku create
 
@@ -177,6 +181,7 @@ Previously, we ran the lighthouse wizard to configure a __local instance__ of th
 
 ```sh
 # While in the `lhci-heroku` folder, run:
+npm install
 npx lhci wizard
 ```
 
@@ -206,13 +211,26 @@ Now, you will run lighthouse and upload the results to your __heroku lighthouse 
 
 ```sh
 # Back in 3-auditing/1-lighthouse
+
 ../../node_modules/.bin/lhci autorun \
 	--collect.numberOfRuns=1 \
-	--collect.startServerCommand='npm start' \
-	--collect.url='http://localhost:3000' \
+	--collect.startServerCommand="npm start" \
+	--collect.url="http://localhost:3000" \
 	--upload.target=lhci \
-	--upload.serverBaseUrl='[YOUR BASE URL]' \
-	--upload.token='[YOUR_TOKEN]'
+	--upload.serverBaseUrl="[YOUR BASE URL]" \
+	--upload.token="[YOUR_TOKEN]"
+```
+
+#### Windows alternative
+
+```sh
+..\\..\\node_modules\\.bin\\lhci autorun ^
+	--collect.numberOfRuns=1 ^
+	--collect.startServerCommand="npm start" ^
+	--collect.url="http://localhost:3000" ^
+	--upload.target=lhci ^
+	--upload.serverBaseUrl="[YOUR BASE URL]" ^
+	--upload.token="[YOUR_TOKEN]"
 ```
 
 Be sure to verify the results on your heroku lighthouse CI server.
