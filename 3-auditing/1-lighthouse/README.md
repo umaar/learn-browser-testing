@@ -1,3 +1,23 @@
+- [Notes](#notes)
+- [1. Upload lighthouse results](#1-upload-lighthouse-results)
+- [2. Upload lighthouse results locally](#2-upload-lighthouse-results-locally)
+  - [2.1. Start lighthouse CI](#21-start-lighthouse-ci)
+  - [2.2. Configure lighthouse CI](#22-configure-lighthouse-ci)
+  - [2.3. Upload lighthouse results locally](#23-upload-lighthouse-results-locally)
+    - [Windows alternative](#windows-alternative)
+- [3. Run lighthouse CI in the cloud](#3-run-lighthouse-ci-in-the-cloud)
+  - [3.1. Setup heroku](#31-setup-heroku)
+  - [3.2. Deploy lighthouse CI to heroku (free)](#32-deploy-lighthouse-ci-to-heroku-free)
+  - [3.3. Run the lighthouse wizard](#33-run-the-lighthouse-wizard)
+  - [3.4. Upload lighthouse results to heroku](#34-upload-lighthouse-results-to-heroku)
+    - [Windows alternative](#windows-alternative-1)
+- [4. Connect lighthouse with github](#4-connect-lighthouse-with-github)
+  - [4.1. Add an action file](#41-add-an-action-file)
+  - [4.2. Enable the status check](#42-enable-the-status-check)
+  - [4.3. Make lighthouse mandatory](#43-make-lighthouse-mandatory)
+- [5. Finishing up](#5-finishing-up)
+- [Example dashboard](#example-dashboard)
+
 
 # Lighthouse CI 
 
@@ -20,6 +40,18 @@ The definitive guide to automated performance testing using Lighthouse, GitHub A
 __The end goal__: At the end of this, you'll be able to run standard Lighthouse audits, but also __custom audits created by you__.
 
 You can run performance checks, accessibility checks, security checks, on each pull request to your GitHub repo.
+
+### Which website should you test?
+
+_Some_ of the commands can be run within this folder (`3-auditing/1-lighthouse`) - there's a small `express` web server which has some random HTML and images, and is currently what Lighthouse is auditing.
+
+It would be helpful to audit __your own website__. Consider these options:
+
+- Use your own website, whether it's dynamic or a set of static pages. Ideally, you want to be able to add lots of large images to your page, and then immediately see how the Lighthouse scores are affected. Pay attention to the `--collect.startServerCommand` flag throughout these instructions.
+- If you don't have your own website to test, you can just use a boilerplate, e.g. here's [express + nunjucks](https://github.com/iamstuartwilson/express-nunjucks-boilerplate), but using any sort of boilerplate is fine, ideally something simple which can be started via `npm start`.
+- If you do not have your own website, and you don't wan't to copy from a boilerplate, you could in theory test a publicly facing URL. Just pay attention to the `--collect.url` flag you'll see throughout these instructions.
+
+For now, you can run commands in this `3-auditing/1-lighthouse` folder, it will become clear when you need to add in your own repo.
 
 ---
 
@@ -344,7 +376,9 @@ Here's the command to run:
 	--assert.assertions.heading-order=error
 ```
 
-💡️ Read up on the [`assertions`](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/configuration.md#assertions) feature of the lighthouse ci tool.
+💡️ Read up on the [`assertions`](https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/configuration.md#assertions) feature of the lighthouse ci tool. The `--assert.assertions` flag is what can instruct the PR to fail if the audit does not pass, so be sure to understand it.
+
+Finally, send me your repository! I can submit a PR and try to get things to fail/pass.
 
 ---
 
