@@ -211,7 +211,6 @@ Now, you will run lighthouse and upload the results to your __heroku lighthouse 
 
 ```sh
 # Back in 3-auditing/1-lighthouse
-
 ../../node_modules/.bin/lhci autorun \
 	--collect.numberOfRuns=1 \
 	--collect.startServerCommand="npm start" \
@@ -224,6 +223,7 @@ Now, you will run lighthouse and upload the results to your __heroku lighthouse 
 #### Windows alternative
 
 ```sh
+# Back in 3-auditing/1-lighthouse
 ..\\..\\node_modules\\.bin\\lhci autorun ^
 	--collect.numberOfRuns=1 ^
 	--collect.startServerCommand="npm start" ^
