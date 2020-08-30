@@ -76,3 +76,4 @@ sftp-config*
 2-scraping/**/*.png
 2-scraping-old-node/**/*.png
 3-auditing/2-lighthouse-custom-audit/*.report.html
+3-auditing-old-node/2-lighthouse-custom-audit/*.report.html
