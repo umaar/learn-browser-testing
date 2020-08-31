@@ -1,0 +1,13 @@
+{
+  "name": "code",
+  "type": "module",
+  "scripts": {
+    "start": "../../../node_modules/.bin/jest | ../../../node_modules/.bin/tap-github-actions"
+  },
+  "jest": {
+    "preset": "jest-puppeteer",
+    "reporters": [
+      "jest-tap-reporter"
+    ]
+  }
+}
