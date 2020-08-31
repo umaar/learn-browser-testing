@@ -7,8 +7,4 @@ npm start
 # or
 
 yarn start
-
-# or
-
-npx jest
 ```

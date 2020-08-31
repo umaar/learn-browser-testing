@@ -31,5 +31,4 @@ jobs:
           npm install
 
       - name: run tests
-        run: |
-          npm run --silent --prefix 4-deploying/1-github-actions/jest start
+        run: npm run --silent --prefix 4-deploying/1-github-actions/jest start
