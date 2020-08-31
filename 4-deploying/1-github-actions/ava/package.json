@@ -1,8 +1,7 @@
 {
     "name": "code",
-    "type": "module",
     "scripts": {
-      "start": "../../../node_modules/.bin/ava --tap | ../../../node_modules/.bin/tap-github-actions"
+      "start": "../../../node_modules/.bin/ava"
     }
   }
   

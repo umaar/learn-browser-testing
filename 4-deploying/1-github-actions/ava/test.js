@@ -1,7 +1,5 @@
-import test from 'ava';
-import withPage from './with-page.js';
-
-const url = 'https://example.com/';
+const test = require('ava');
+const withPage = require('./with-page.js');
 
 test('This is test 1', withPage, async (t, page) => {
 	await page.goto('about:blank');  
