@@ -23,3 +23,5 @@ for (const [testName, testFunction] of Object.entries(allTests)) {
     }
 }
 
+await browser.close();
+console.log('\nAll tests passed! ✅️');
