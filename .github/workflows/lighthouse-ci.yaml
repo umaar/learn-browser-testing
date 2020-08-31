@@ -1,5 +1,8 @@
 name: Run Lighthouse CI
-on: [push]
+on:
+  push:
+    paths:
+    - '3-auditing/1-lighthouse/**'
 jobs:
   lhci:
     name: Lighthouse CI
