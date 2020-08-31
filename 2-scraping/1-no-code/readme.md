@@ -7,7 +7,6 @@
 ## Cheat sheet
 
 
-
 ```
 =IMPORTXML("https://umaar.com/dev-tips/235-smooth-scroll-into-view/","//span[@class='dt-tip-date']")
 
