@@ -5,6 +5,11 @@
     "start": "../../../node_modules/.bin/jest"
   },
   "jest": {
-    "preset": "jest-puppeteer"
+    "preset": "jest-puppeteer",
+    "reporters": [
+      "default",
+      "jest-github-actions-reporter"
+    ],
+    "testLocationInResults": true
   }
 }
