@@ -1,10 +1,10 @@
 import puppeteer from 'puppeteer';
 
-import test1 from './test-1.js';
-import test2 from './test-2.js';
-import test3 from './test-3.js';
+import tests1 from './test-1.js';
+import tests2 from './test-2.js';
+import tests3 from './test-3.js';
 
-const allTests = {...test1, ...test2, ...test3};
+const allTests = {...tests1, ...tests2, ...tests3};
 
 const browser = await puppeteer.launch();
 const page = await browser.newPage();
