@@ -13,4 +13,9 @@ describe('my tests', () => {
 		cy.visit('https://example.com');
 		cy.title().should('eq', 'Example.com');
 	});
+
+	it('Has the correct title test 4', () => {
+		cy.visit('https://example.com');
+		cy.title().should('eq', 'example  domain');
+	});
 });
