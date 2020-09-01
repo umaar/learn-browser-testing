@@ -34,5 +34,7 @@ unset GIT_DIR
 cd /root/learn-browser-testing
 git fetch origin master
 git reset --hard origin/master
+cd 4-deploying/2-vps/
+npm start
 echo 'Post Receive Complete!'
 ```
