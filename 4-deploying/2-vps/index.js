@@ -7,7 +7,7 @@ const browser = await puppeteer.launch({
     args: ['--no-sandbox', '--disable-setuid-sandbox']
 });
 const page = await browser.newPage();
-await page.goto('https://amazon.com');
+await page.goto('https://duckduckgo.com');
 
 console.log('Page title = ', await page.title());
 
