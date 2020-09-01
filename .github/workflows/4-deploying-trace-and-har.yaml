@@ -32,7 +32,7 @@ jobs:
 
       - name: run tests
         run: |
-          npm run --silent --prefix 4-deploying/5-trace-and-har start
+          npm run --prefix 4-deploying/5-trace-and-har start
 
       - name: Upload HAR file and DevTools trace
         if: ${{ success() }}

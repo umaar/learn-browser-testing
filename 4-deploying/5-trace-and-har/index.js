@@ -13,6 +13,8 @@ const page = await browser.newPage();
 
 const har = new HAR(page);
 
+console.log('Stating HAR and devtools trace recordings');
+
 await har.start({
 	path: path.join(artifactsFolder, 'http-archive.har')
 });
@@ -28,5 +30,7 @@ await page.goto('https://moderndevtools.com/', {
 await page.tracing.stop();
 
 await har.stop();
+
+console.log('Finished HAR and devtools trace recordings');
 
 await browser.close();
