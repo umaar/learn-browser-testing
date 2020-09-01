@@ -33,5 +33,4 @@ jobs:
       - name: run tests
         run: npm run --silent --prefix 4-deploying/1-github-actions/cypress start
         env:
-          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}

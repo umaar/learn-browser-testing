@@ -1,6 +1,6 @@
 {
   "name": "code",
   "scripts": {
-    "start": "../../../node_modules/.bin/cypress run --record"
+    "start": "CYPRESS_PROJECT_ID=skdry1 ../../../node_modules/.bin/cypress run --record"
   }
 }
