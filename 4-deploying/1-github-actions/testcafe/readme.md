@@ -8,3 +8,11 @@ npm start
 
 yarn start
 ```
+
+## Preview
+
+Here's what it looks like when run via GitHub actions
+
+| ![preview.png](preview.png) | 
+|:--:| 
+| *Preview of GitHub actions output* |
