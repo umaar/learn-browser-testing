@@ -1,0 +1,41 @@
+name: Runs the 3-videos-simple module
+on:
+  push:
+    paths:
+    - '4-deploying/3-videos-simple/**'
+jobs:
+  pptr:
+    name: Execute playwright
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use latest Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '*'
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-${{ env.cache-name }}-
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
+
+      - name: npm install
+        run: |
+          npm install
+
+      - name: run tests
+        run: |
+          npm run --silent --prefix 4-deploying/3-videos-simple start
+
+      - name: Upload videos
+        uses: actions/upload-artifact@v1
+        with:
+          name: test-output
+          path: test-output
