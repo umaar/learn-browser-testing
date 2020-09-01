@@ -11,7 +11,8 @@ mkdirSync(artifactsFolder, {recursive: true});
 console.log('Launching Chrome');
 
 const browser = await chromium.launch({
-	slowMo: 100
+	slowMo: 100,
+	args: ['--no-sandbox', '--disable-setuid-sandbox']
 });
 
 const context = await browser.newContext();
