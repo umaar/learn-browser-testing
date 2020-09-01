@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 
-console.log('Opening puppeteer');
+console.log('\nOpening puppeteer\n');
 
 const browser = await puppeteer.launch({
     headless: true,
@@ -12,4 +12,4 @@ await page.goto('https://example.com');
 console.log('Page title = ', await page.title());
 
 await browser.close();
-console.log('Puppeteer finished');
+console.log('\nPuppeteer finished\n');

@@ -13,14 +13,13 @@ yarn start
 
 ```sh
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt-get install -y nodejs
-node -v
+sudo apt-get install -y nodejs && node -v
 
 git init --bare learn-browser-testing.git
 ```
 
 ```sh
-git remote add vps root@167.71.132.117:/root/learn-browser-testing.git
+git remote add vps root@IP_ADDRESS:/root/learn-browser-testing.git
 ```
 
 ```sh
