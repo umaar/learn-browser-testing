@@ -38,3 +38,9 @@ cd 4-deploying/2-vps/
 npm start
 echo 'Post Receive Complete!'
 ```
+
+## installing deps
+
+```sh
+
+```
