@@ -38,4 +38,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: test-output
-          path: test-output
+          path: 4-deploying/3-videos-simple/test-output

@@ -8,12 +8,6 @@ mkdirSync(artifactsFolder, {recursive: true});
 
 const fullVideoPath = path.join(artifactsFolder, 'video.mp4');
 
-console.log({
-	fullVideoPath,
-	artifactsFolder
-});
-
-
 console.log('Launching Chrome');
 
 const browser = await chromium.launch({
