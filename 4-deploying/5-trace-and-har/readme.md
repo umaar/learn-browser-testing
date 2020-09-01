@@ -1,4 +1,3 @@
-
 ## To run
 
 ```sh
@@ -12,4 +11,4 @@ yarn start
 ## Artifact
 
 - Local: Check the `test-output` folder
-- GitHub actions: [View it here](https://github.com/umaar/learn-browser-testing/runs/1058540887)
+- GitHub actions: [View it here]()

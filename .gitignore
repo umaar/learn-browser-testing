@@ -78,3 +78,5 @@ sftp-config*
 3-auditing/2-lighthouse-custom-audit/*.report.html
 3-auditing-old-node/2-lighthouse-custom-audit/*.report.html
 4-deploying/4-videos-screenshots/**/*.png
+4-deploying/5-trace-and-har/**/*.har
+4-deploying/5-trace-and-har/**/*.json

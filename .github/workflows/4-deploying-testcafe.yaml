@@ -30,6 +30,6 @@ jobs:
         run: |
           npm install
 
-      - name: run tests
+      - name: runs testcafe tests
         run: |
           npm run --silent --prefix 4-deploying/1-github-actions/testcafe start

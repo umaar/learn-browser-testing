@@ -34,7 +34,7 @@ jobs:
         run: |
           npm run --silent --prefix 4-deploying/4-videos-screenshots start
 
-      - name: Upload videos
+      - name: Upload videos and screenshots
         if: ${{ always() }}
         uses: actions/upload-artifact@v1
         with:

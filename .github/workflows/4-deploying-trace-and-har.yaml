@@ -1,11 +1,11 @@
-name: Runs ava tests (module 4)
+name: Runs the 5-trace-and-har module
 on:
   push:
     paths:
-    - '4-deploying/1-github-actions/ava/**'
+    - '4-deploying/5-trace-and-har/**'
 jobs:
-  ava:
-    name: Execute ava
+  pptr:
+    name: Execute puppeteer
 
     runs-on: ubuntu-latest
 
@@ -28,8 +28,15 @@ jobs:
 
       - name: npm install
         run: |
-          npm install
+          npm install && npm install playwright
 
-      - name: run tests with ava
+      - name: run tests
         run: |
-          npm run --silent --prefix 4-deploying/1-github-actions/ava start
+          npm run --silent --prefix 4-deploying/5-trace-and-har start
+
+      - name: Upload HAR file and DevTools trace
+        if: ${{ success() }}
+        uses: actions/upload-artifact@v1
+        with:
+          name: test-output
+          path: 4-deploying/5-trace-and-har/test-output

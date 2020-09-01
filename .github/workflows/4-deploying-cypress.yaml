@@ -30,7 +30,7 @@ jobs:
         run: |
           npm install
 
-      - name: run tests
+      - name: run cypress tests
         run: npm run --silent --prefix 4-deploying/1-github-actions/cypress start
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
