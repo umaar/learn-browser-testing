@@ -1,6 +1,6 @@
-import {chromium} from 'playwright';
 import {mkdirSync} from 'fs';
 import path from 'path';
+import {chromium} from 'playwright';
 import playwrightVideo from 'playwright-video';
 
 const artifactsFolder = 'test-output'
