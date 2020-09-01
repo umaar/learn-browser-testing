@@ -1,0 +1,7 @@
+{
+  "name": "code",
+  "type": "module",
+  "scripts": {
+    "start": "../../../node_modules/.bin/testcafe 'chrome:headless' index.js"
+  }
+}
