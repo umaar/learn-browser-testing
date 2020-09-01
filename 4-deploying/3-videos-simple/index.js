@@ -3,10 +3,16 @@ import path from 'path';
 import {chromium} from 'playwright';
 import playwrightVideo from 'playwright-video';
 
-const artifactsFolder = 'test-output'
+const artifactsFolder = path.join(process.cwd(), `test-output`);
+mkdirSync(artifactsFolder, {recursive: true});
+
 const fullVideoPath = path.join(artifactsFolder, 'video.mp4');
 
-mkdirSync(artifactsFolder, {recursive: true});
+console.log({
+	fullVideoPath,
+	artifactsFolder
+});
+
 
 console.log('Launching Chrome');
 
