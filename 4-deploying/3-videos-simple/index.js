@@ -28,7 +28,7 @@ try {
 	await page.click(`a[href$="/videos/"]`);
 	await page.click(`a[href$="/code/"]`);
 } finally {
+	console.log('Closing browser');
 	await capture.stop();
 	await browser.close();
-	console.log('Closed browser');
 }
