@@ -28,7 +28,7 @@ git clone learn-browser-testing.git
 
 ```sh
 cd learn-browser-testing
-npm install
+npm install --no-package-lock puppeteer
 ```
 
 ```sh
