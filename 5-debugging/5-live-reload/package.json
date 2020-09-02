@@ -1,0 +1,8 @@
+{
+  "name": "code",
+  "type": "module",
+  "scripts": {
+    "start": "../../node_modules/.bin/nodemon --experimental-top-level-await index",
+    "open": "node --experimental-top-level-await open"
+  }
+}
