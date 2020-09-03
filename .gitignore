@@ -59,7 +59,7 @@ npm-debug.log
 node_modules/
 
 
-
+differencify_reports
 .netlify/
 sftp-config*
 *.sublime-*

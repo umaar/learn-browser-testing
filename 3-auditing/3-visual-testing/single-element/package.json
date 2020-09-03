@@ -1,0 +1,8 @@
+{
+	"name": "code",
+	"type": "module",
+	"scripts": {
+	  "start": "node --experimental-top-level-await index"
+	}
+  }
+  

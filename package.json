@@ -13,6 +13,7 @@
     "chromedriver": "^85.0.0",
     "cucumber": "^6.0.5",
     "cypress": "^5.1.0",
+    "differencify": "^1.5.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jest": "^26.4.2",

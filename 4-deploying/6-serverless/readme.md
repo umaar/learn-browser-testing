@@ -7,8 +7,7 @@ There's nothing to `npm start` here, this is just a demonstration of a serverles
 
 This serverless function returns a screenshot of the webpage.
 
-- https://lbt-demo.netlify.app/.netlify/functions/screenshot?url=https://example.com
-- https://serverless.automatebrowsers.com/.netlify/functions/screenshot
+- https://serverless.automatebrowsers.com/.netlify/functions/screenshot?url=https://example.com
 
 ## Deploy
 
