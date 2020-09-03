@@ -59,8 +59,8 @@ npm-debug.log
 node_modules/
 
 
-# Sublime specific #
-####################
+
+.netlify/
 sftp-config*
 *.sublime-*
 *.screenflow
