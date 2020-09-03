@@ -23,4 +23,4 @@ You need to authorise Cypress with GitHub, from their Cypress Dashboard service.
 
 ![permission.png](permission.png)
 
-Example [link]()
+Example [link](https://github.com/umaar/learn-browser-testing/runs/1066585437)
