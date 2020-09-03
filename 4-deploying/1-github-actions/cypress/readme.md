@@ -22,3 +22,5 @@ Here's what it looks like when run via GitHub actions
 You need to authorise Cypress with GitHub, from their Cypress Dashboard service.
 
 ![permission.png](permission.png)
+
+Example [link]()

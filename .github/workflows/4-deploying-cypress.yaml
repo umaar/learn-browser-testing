@@ -28,7 +28,7 @@ jobs:
 
       - name: npm install
         run: |
-          npm install
+          npm install && npm install cypress
 
       - name: run cypress tests
         run: npm run --silent --prefix 4-deploying/1-github-actions/cypress start
