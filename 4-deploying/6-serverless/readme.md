@@ -16,3 +16,23 @@ Deploying can be done at the root of this repo:
 ```
 netlify deploy
 ```
+
+## Example function
+
+```js
+exports.handler = async () => {
+	return {
+		statusCode: 200,
+		body: 'Hey hey'
+	}
+}
+```
+
+## Example netlify.toml
+
+```toml
+[build]
+  command = "#"
+  publish = "page"
+  functions = "functions"
+```
