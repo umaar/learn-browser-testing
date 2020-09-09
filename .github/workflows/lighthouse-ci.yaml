@@ -1,8 +1,15 @@
 name: Run Lighthouse CI
 on:
   push:
+    branches: [ master ]
     paths:
     - '3-auditing/1-lighthouse/**'
+    - '.github/workflows/lighthouse-ci.yaml'
+  pull_request:
+    branches: [ master ]
+    paths:
+    - '3-auditing/1-lighthouse/**'
+    - '.github/workflows/lighthouse-ci.yaml'
 jobs:
   lhci:
     name: Lighthouse CI
@@ -17,18 +24,14 @@ jobs:
           node-version: '*'
 
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
-          path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-build-${{ env.cache-name }}-
-            ${{ runner.OS }}-build-
-            ${{ runner.OS }}-
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
 
-      - name: npm install
-        run: |
-          npm install
+      - name: npm ci
+        run: npm ci
 
       - name: run Lighthouse CI
         env:
