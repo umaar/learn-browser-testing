@@ -1,8 +1,15 @@
 name: Runs the 4-videos-screenshots module
 on:
   push:
+    branches: [ master ]
     paths:
     - '4-deploying/4-videos-screenshots/**'
+    - '.github/workflows/4-deploying-videos-screenshots.yaml'
+  pull_request:
+    branches: [ master ]
+    paths:
+    - '4-deploying/4-videos-screenshots/**'
+    - '.github/workflows/4-deploying-videos-screenshots.yaml'
 jobs:
   pptr:
     name: Execute playwright with videos and screenshots
@@ -17,18 +24,14 @@ jobs:
           node-version: '*'
 
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
-          path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-build-${{ env.cache-name }}-
-            ${{ runner.OS }}-build-
-            ${{ runner.OS }}-
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
 
-      - name: npm install
-        run: |
-          npm install && npm install playwright
+      - name: npm ci
+        run: npm ci
 
       - name: run tests
         run: |

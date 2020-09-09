@@ -1,8 +1,15 @@
 name: Runs puppeteer tests (module 4)
 on:
   push:
+    branches: [ master ]
     paths:
     - '4-deploying/1-github-actions/puppeteer/**'
+    - '.github/workflows/4-deploying-puppeteer.yaml'
+  pull_request:
+    branches: [ master ]
+    paths:
+    - '4-deploying/1-github-actions/puppeteer/**'
+    - '.github/workflows/4-deploying-puppeteer.yaml'
 jobs:
   pptr:
     name: Execute puppeteer
@@ -17,18 +24,14 @@ jobs:
           node-version: '*'
 
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
-          path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-build-${{ env.cache-name }}-
-            ${{ runner.OS }}-build-
-            ${{ runner.OS }}-
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
 
-      - name: npm install
-        run: |
-          npm install
+      - name: npm ci
+        run: npm ci
 
       - name: run puppeteer tests
         run: |
