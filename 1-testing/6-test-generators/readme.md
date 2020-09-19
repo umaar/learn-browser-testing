@@ -1,4 +1,6 @@
 
+__Update__: Playwright can now do this [natively](https://github.com/microsoft/playwright-cli)!
+
 ### How to use this
 
 1. Firstly, make sure the existing test in this folder runs successfully. Run this command in your terminal:
