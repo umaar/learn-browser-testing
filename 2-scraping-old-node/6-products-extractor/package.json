@@ -1,6 +1,0 @@
-{
-  "name": "code",
-  "scripts": {
-    "start": "node index"
-  }
-}

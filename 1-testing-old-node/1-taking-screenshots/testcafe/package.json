@@ -1,6 +1,0 @@
-{
-  "name": "code",
-  "scripts": {
-    "start": "../../../node_modules/.bin/testcafe 'firefox:headless' index.js"
-  }
-}

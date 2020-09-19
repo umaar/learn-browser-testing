@@ -1,7 +1,0 @@
-{
-  "name": "code",
-  "type": "commonjs",
-  "scripts": {
-    "start": "../../node_modules/.bin/cucumber-js --format usage"
-  }
-}

@@ -72,11 +72,8 @@ sftp-config*
 !1-testing/3-quick-recipes/assets/.gitkeep
 /wip
 1-testing/**/*.png
-1-testing-old-node/**/*.png
 2-scraping/**/*.png
-2-scraping-old-node/**/*.png
 3-auditing/2-lighthouse-custom-audit/*.report.html
-3-auditing-old-node/2-lighthouse-custom-audit/*.report.html
 4-deploying/4-videos-screenshots/test-output/*.png
 4-deploying/5-trace-and-har/test-output/*.har
 4-deploying/5-trace-and-har/test-output/*.json

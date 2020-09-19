@@ -1,7 +1,0 @@
-{
-    "name": "code",
-    "scripts": {
-      "start": "../../../node_modules/.bin/ava"
-    }
-  }
-  
